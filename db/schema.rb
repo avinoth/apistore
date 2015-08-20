@@ -11,18 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817151339) do
+ActiveRecord::Schema.define(version: 20150820132345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
   create_table "stores", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                          null: false
     t.jsonb    "content"
-    t.uuid     "token",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.uuid     "token",                         null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.datetime "last_accessed"
+    t.integer  "accessed_times", default: 0
+    t.boolean  "active",         default: true
   end
 
   add_index "stores", ["name"], name: "index_stores_on_name", using: :btree

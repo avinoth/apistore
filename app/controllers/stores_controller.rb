@@ -2,6 +2,7 @@ class StoresController < ApplicationController
   before_action :set_store, only: [:show, :update, :destroy]
 
   def show
+    @store.update_access
     render json: print_out(@store)
   end
 
@@ -31,7 +32,7 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
 
-    head :no_content
+    render json: {'status': 'Your JSON is destroyed succesfully.'}
   end
 
   private
