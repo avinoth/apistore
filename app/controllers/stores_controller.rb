@@ -39,7 +39,7 @@ class StoresController < ApplicationController
 
     def set_store
       @store = Store.find(params[:id])
-      unless @store.token == params[:token]
+      unless @store.token == params[:token] or @store.active
         unauthorized_request
       end
     end
