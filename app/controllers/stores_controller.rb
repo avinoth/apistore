@@ -32,7 +32,7 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
 
-    render json: {'status': 'Your JSON is destroyed succesfully.'}
+    render json: {status: 'Your JSON is destroyed succesfully.'}
   end
 
   private
