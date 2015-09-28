@@ -14,7 +14,8 @@ class StaticController < ApplicationController
         :create =>"POST /stores",
         :read =>"GET /stores/:id?token=:access_token",
         :update =>"POST /stores/:id?token=:access_token",
-        :delete =>"DELETE /stores/:id?token=:access_token"
+        :delete =>"DELETE /stores/:id?token=:access_token",
+        :admin_stats => "GET /admin/stats?token=:admin_token"
       }
     }
   end

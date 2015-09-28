@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'static#home'
 
   resources :stores
+  get '/admin/stats', to: 'stores#show_stats'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

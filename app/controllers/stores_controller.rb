@@ -1,6 +1,23 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :update, :destroy]
 
+  def show_stats
+    if is_admin?
+      @stores = Store.all.order('last_accessed desc').map do |s|
+        {
+          id: s.id,
+          name: s.name,
+          created: s.created_at,
+          last_accessed: s.last_accessed,
+          accessed_times: s.accessed_times
+        }
+      end
+      render json: @stores
+    else
+      unauthorized_request
+    end
+  end
+
   def show
     @store.update_access
     render json: print_out(@store)
