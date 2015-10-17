@@ -2,8 +2,8 @@
 
 apistore is a self hosted rails app to store and retrieve JSON data.
 
-Probably usecases,
-* JSON data basckup.
+Probable usecases,
+* JSON data backup.
 * For data for which DB is overkill and can't store it in a filesystem.
 
 Endpoints are,
